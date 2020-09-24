@@ -1,0 +1,20 @@
+server:
+  port: 8081
+person:
+  id: 1
+  name: isaac
+  hobby:
+    - eat
+    - sleep
+  family: [mom,father]
+  map: {k1: v1,k2: v2}
+#  map:
+#    k1: v1
+#    k2: v2
+  pet:
+    name: 佩奇
+    type: 猪
+
+simple:
+  id: 10
+  name: xxx-spring-boot-starter

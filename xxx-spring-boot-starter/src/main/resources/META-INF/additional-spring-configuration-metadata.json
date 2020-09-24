@@ -1,0 +1,14 @@
+{
+  "properties": [
+    {
+      "name": "simple.id",
+      "type": "java.lang.Integer",
+      "description": "Description for simple.id."
+    },
+    {
+      "name": "simple.name",
+      "type": "java.lang.String",
+      "description": "Description for simple.name."
+    }
+  ]
+}
