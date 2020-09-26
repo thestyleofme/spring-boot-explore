@@ -1,0 +1,7 @@
+spring:
+  thymeleaf:
+    # 在开发调试阶段可以设置为false，上线稳定后可设置为默认true
+    cache: false
+  # 配置国际化文件基础名
+  messages:
+    basename: i18n.login

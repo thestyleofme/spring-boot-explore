@@ -1,0 +1,25 @@
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/cus_spring?useUnicode=true&characterEncoding=utf-8&useSSL=false
+    username: root
+    password: tse@9527
+    driver-class-name: com.mysql.jdbc.Driver
+    hikari:
+      # 连接池最小空闲连接数
+      minimum-idle: ${SPRING_DATASOURCE_MINIMUM_IDLE:20}
+      # 连接池允许的最大连接数
+      maximum-pool-size: ${SPRING_DATASOURCE_MAXIMUM_POOL_SIZE:200}
+      # 等待连接池分配连接的最大时长（毫秒）
+      connection-timeout: ${SPRING_DATASOURCE_CONNECTION_TIMEOUT:30000}
+  redis:
+    host: ${SPRING_REDIS_HOST:localhost}
+    port: ${SPRING_REDIS_PORT:6379}
+    database: ${SPRING_REDIS_DATABASE:0}
+    password: ${SPRING_REDIS_PASSWORD:}
+    timeout: 5000
+
+mybatis:
+  configuration:
+    map-underscore-to-camel-case: true
+  mapper-locations: classpath*:mapper/*.xml
+#  type-aliases-package: com.github.codingdebugallday.pojo
