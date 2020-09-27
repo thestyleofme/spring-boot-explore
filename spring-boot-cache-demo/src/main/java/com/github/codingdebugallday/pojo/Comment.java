@@ -1,10 +1,13 @@
 package com.github.codingdebugallday.pojo;
 
+import java.io.Serializable;
 import javax.persistence.*;
 
 /**
  * <p>
- * description
+ * 这里实现Serializable的原因：
+ * spring boot redis默认序列化方式是jdk序列化（JdkSerializationRedisSerializer）
+ * 故必须实现Serializable接口
  * </p>
  *
  * @author isaac 2020/09/26 22:14
@@ -12,7 +15,9 @@ import javax.persistence.*;
  */
 @Entity
 @Table(name = "t_comment")
-public class Comment {
+public class Comment implements Serializable {
+
+    private static final long serialVersionUID = 1076731808234605292L;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

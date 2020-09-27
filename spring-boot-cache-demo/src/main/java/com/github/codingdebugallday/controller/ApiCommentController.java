@@ -1,7 +1,7 @@
 package com.github.codingdebugallday.controller;
 
 import com.github.codingdebugallday.pojo.Comment;
-import com.github.codingdebugallday.service.CommentService;
+import com.github.codingdebugallday.service.ApiCommentService;
 import org.springframework.web.bind.annotation.*;
 
 /**
@@ -13,12 +13,12 @@ import org.springframework.web.bind.annotation.*;
  * @since 1.0.0
  */
 @RestController
-@RequestMapping("/comment")
-public class CommentController {
+@RequestMapping("/comment-api")
+public class ApiCommentController {
 
-    private final CommentService commentService;
+    private final ApiCommentService commentService;
 
-    public CommentController(CommentService commentService) {
+    public ApiCommentController(ApiCommentService commentService) {
         this.commentService = commentService;
     }
 

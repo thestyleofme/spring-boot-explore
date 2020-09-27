@@ -24,4 +24,10 @@
 
 > 国际化页面配置以及手动切换语言界面
 
+### spring-boot-cache-demo
 
+> spring boot默认缓存实现
+>
+> 基于redis的注解缓存实现以及自定义RedisCacheManager
+> 
+> 基于api的redis缓存实现

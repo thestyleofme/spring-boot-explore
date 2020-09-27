@@ -4,6 +4,8 @@ import java.util.Optional;
 
 import com.github.codingdebugallday.pojo.Comment;
 import com.github.codingdebugallday.repository.CommentRepository;
+import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.CachePut;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
@@ -34,12 +36,20 @@ public class CommentService {
      * key：默认在只有一个参数的情况下，key值默认就是方法参数值
      * 如果没有参数或者多个参数的情况下，SimpleKeyGenerator
      */
-    @Cacheable(cacheNames = "comment")
+    @Cacheable(cacheNames = "comment", unless = "#result==null")
     public Comment findCommentById(Long id) {
         Optional<Comment> optional = commentRepository.findById(id);
-        if (optional.isPresent()) {
-            return optional.get();
-        }
-        throw new IllegalArgumentException("not find comment by id: " + id);
+        return optional.orElse(null);
+    }
+
+    @CachePut(cacheNames = "comment", key = "#result.id")
+    public Comment updateComment(Comment comment) {
+        commentRepository.updateComment(comment.getAuthor(), comment.getId());
+        return findCommentById(comment.getId());
+    }
+
+    @CacheEvict(cacheNames = "comment",key = "#id")
+    public void deleteComment(Long id){
+        commentRepository.deleteById(id);
     }
 }
