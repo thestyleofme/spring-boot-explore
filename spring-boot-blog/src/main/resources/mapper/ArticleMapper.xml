@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.github.codingdebugallday.blog.mapper.ArticleMapper">
+    <resultMap id="BaseResultMap" type="com.github.codingdebugallday.blog.pojo.Article">
+        <result column="id" property="id" jdbcType="DECIMAL"/>
+        <result column="title" property="title" jdbcType="VARCHAR"/>
+        <result column="content" property="content" jdbcType="VARCHAR"/>
+        <result column="created" property="created" jdbcType="TIMESTAMP"/>
+        <result column="modified" property="modified" jdbcType="TIMESTAMP"/>
+        <result column="categories" property="categories" jdbcType="VARCHAR"/>
+        <result column="tags" property="tags" jdbcType="VARCHAR"/>
+        <result column="allow_comment" property="allowComment" jdbcType="DECIMAL"/>
+        <result column="thumbnail" property="thumbnail" jdbcType="VARCHAR"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+        id,
+        title,
+        content,
+        created,
+        modified,
+        categories,
+        tags,
+        allow_comment,
+        thumbnail
+    </sql>
+
+    <select id="list" resultMap="BaseResultMap">
+        SELECT
+        <include refid="Base_Column_List"/>
+        From t_article
+        <where>
+            <if test="article.id !=null">
+                and id = #{article.id}
+            </if>
+        </where>
+        limit #{startNumber}, #{pageSize}
+    </select>
+
+    <select id="count" resultType="java.lang.Long">
+        SELECT count(*)
+        FROM t_article
+    </select>
+</mapper>

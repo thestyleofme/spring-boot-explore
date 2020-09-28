@@ -1,4 +1,4 @@
-package com.github.codingdebugallday.utils;
+package com.github.codingdebugallday.blog.utils;
 
 import java.lang.reflect.Method;
 import java.util.concurrent.ScheduledExecutorService;

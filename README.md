@@ -31,3 +31,7 @@
 > 基于redis的注解缓存实现以及自定义RedisCacheManager
 > 
 > 基于api的redis缓存实现
+
+### spring-boot-blog
+
+> 一个综合练习项目

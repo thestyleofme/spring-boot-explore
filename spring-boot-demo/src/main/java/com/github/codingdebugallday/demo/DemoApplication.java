@@ -12,10 +12,10 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * @since 1.0.0
  */
 @SpringBootApplication
-public class SpringBootExploreApplication {
+public class DemoApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(SpringBootExploreApplication.class, args);
+        SpringApplication.run(DemoApplication.class, args);
     }
 
 }
